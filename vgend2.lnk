@@ -1,0 +1,106 @@
+===================================================
+VIA VT6122 Velocity OS/2 NDIS 2.0.1 MAC driver 1.05
+===================================================
+
+1.Introduction
+
+VIA Velocity series are giga bit ethernet chipsets.
+
+
+Included files are:
+vgend2.os2	NDIS 2.0.1 MAC driver
+vgend2.nif	Network Information File
+vgend2.sym	Symbol Map file
+vgend2.lnk	Document (this file)
+source.zip	source files
+
+You could download the latest file on the gomi:NDIS MAC Drivers page,
+URL http://www.os2warp.be/index2.php?name=gomindis .
+
+
+2.No Warranty
+
+This code is provided 'AS IS' and any warranties are disclaimed.
+
+
+3.Functional restrictions
+
+- Wake-on-LAN is not supported.
+- VLAN/Priority is not supported.
+
+
+4.Considerable configuration keywords
+
+- RXQUEUE keyword value should be multiple of 4.
+- DAPOLL keyword seems to be meaningless.
+
+
+5.Note
+
+>> On my test environment, ASUS P5A + K6-2 500(300MHz) 
+>> + KUROUTO SHIKOU GbE-PCI(VT6122), this driver is strongly unstable 
+>> in giga bit ethernet mode:-) OS stalls easily... 
+>> Probably the motherboard is out of order.
+
+>Now I change test machine. NEC PC9821 Xa13 + Cyrix MII-400.
+>It works stable... But I notice PHY trouble.
+>In giga bit mode, link between 2 PHYs, local NIC's PHY and link partner's, 
+>enters bad state. Frequently Activity. MAC side seems to be not retated 
+>to this phenomenon. Trouble between PHYs. I don't find any resolution yet.
+
+Now I change test card. OK.
+Both test machine and test card were out of order:-)
+
+
+6.Redistribution with modification
+
+Your should add your copyright notice, 
+"(c)Copyright 2004 your name. All rights reserved."
+and remove mine (if it exists),
+"(c)Copyright 2004 chagrin. Some rights reserved."
+
+This means that the modified binary/source is not mine, but yours, 
+regardless of the degree of the modification. 
+You can redistribute, of course, that for the commercial purpose 
+without any fee to me, without releasing the source, if you want.
+
+Don't forget that I'm never liable for your product.
+(You, also, should add a disclaimer.)
+
+
+7.Acknowledgement
+
+VIA had provided the datasheet for me to write this driver.
+
+
+8.History
+
+ver.1.05 - 12/17, 2005.
+- 1 new keyword, IRQ15OVR, was added.
+
+ver.1.04 - 11/15, 2005.
+- Workaround for Virtual PC.
+
+ver.1.03 - 12/31, 2004.
+- Bugfix: Long packet can be acceptable.
+- Bugfix: Multiple receive descriptors per a packet can work.
+
+ver.1.02 - 12/30, 2004.
+- Tx code was slightly modified.
+
+ver.1.01 - 12/26, 2004.
+- 19 new keywords were added.
+- Interrupt enable/disable logic was modified.(IMR instead of GintMask)
+- PHY specific work around routine was added.(From FreeBSD driver code)
+
+ver.1.00 - 12/22, 2004.
+-  Initial release.
+
+
+9.Contact to the author
+
+Access os2warp.be Technical Support Center,
+URL http://www.os2warp.be/support/
+ or
+Email to YANAGIHARA Nobuyuki,
+ <VYL00513@nifty.ne.jp>
